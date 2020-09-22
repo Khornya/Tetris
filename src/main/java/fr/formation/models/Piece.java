@@ -3,6 +3,7 @@ package fr.formation.models;
 public class Piece {
     private String name;
     private int[][] matrix;
+    private int id;
 
     public Piece(String name, int[][] matrix) {
         this.name = name;
@@ -23,5 +24,13 @@ public class Piece {
 
     public void setMatrix(int[][] matrix) {
         this.matrix = matrix;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
