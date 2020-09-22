@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Liste des pièces</title>
+    <base href="/eshop_web_war_exploded/"/>
+</head>
+<body>
+<h1>Liste des pièces</h1>
+<a href="piece/add">Ajouter une pièce</a>
+<ul th:each="piece : ${pieces} ">
+    <li>
+        [[${ carte.nom }]]
+        [ <a th:href="@{ piece/edit(id=${ piece.id }) }">Modifier</a> ]
+        [ <a th:href="@{ piece/delete/{id}(id=${ piece.id }) }">Supprimer</a> ]
+    </li>
+    </th:each>
+</ul>
+</body>
+</html>
