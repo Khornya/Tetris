@@ -12,7 +12,7 @@ import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 
 @Configuration
 @ComponentScan("fr.formation")
-@EnableWebMvc // Active de délégationd de reg
+@EnableWebMvc // Active de dï¿½lï¿½gationd de reg
 public class WebConfig implements WebMvcConfigurer {
 	
 	@Override
@@ -25,6 +25,7 @@ public class WebConfig implements WebMvcConfigurer {
 		SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
 		templateResolver.setPrefix("/WEB-INF/templates/");
 		templateResolver.setSuffix(".html");
+		templateResolver.setCacheable(false);
 		return templateResolver;
 	}
 

@@ -17,12 +17,12 @@ public class PieceController {
     public String findAll(Model model) {
         model.addAttribute("pieces", this.pieceService.findAll());
 
-        return "piece/list";
+        return "list";
     }
 
     @GetMapping("/add")
     public String add() {
-        return "piece/form";
+        return "form";
     }
 
     @PostMapping("/add")
@@ -36,7 +36,7 @@ public class PieceController {
     public String edit(@RequestParam int id, Model model) {
         model.addAttribute("piece", this.pieceService.findById(id));
 
-        return "piece/form";
+        return "form";
     }
 
     @PostMapping("/edit")

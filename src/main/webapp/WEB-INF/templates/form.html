@@ -1,16 +1,29 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8" />
-    <title>Ajouter une carte</title>
+    <meta charset="UTF-8">
+    <title>Ajouter une pièce</title>
 </head>
 <body>
 <h1 th:if="${ piece == null }"> Ajouter une pièce </h1>
 <h1 th:if="${ piece != null }"> Modifier la pièce </h1>
+<p>TEST</p>
 <form method="POST">
     <div>
         <label>Nom</label>
-        <input type="text" name="nom" th:value="${piece?.nom}" />
+        <input type="text" name="nom" th:value="${piece?.name}" />
+    </div>
+    <div>
+        <label>Taille de la grille</label>
+        <select name="size" id="size">
+            <option value="3">3x3</option>
+            <option value="4">4x4</option>
+            <option value="5">5x5</option>
+        </select>
+    </div>
+    <div>
+        <label>Forme</label>
+        <div id="grid"></div>
     </div>
     <div>
         <input type="submit" value="Valider" />

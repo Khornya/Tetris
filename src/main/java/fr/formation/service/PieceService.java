@@ -2,10 +2,12 @@ package fr.formation.service;
 
 import fr.formation.exception.PieceNotFoundException;
 import fr.formation.models.Piece;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class PieceService {
     private static int id = 1;
     private List<Piece> pieces;
