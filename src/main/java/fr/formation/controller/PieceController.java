@@ -1,6 +1,6 @@
 package fr.formation.controller;
 
-import fr.formation.models.Piece;
+import fr.formation.model.Piece;
 import fr.formation.service.PieceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

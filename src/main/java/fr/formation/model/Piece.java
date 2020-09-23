@@ -1,9 +1,26 @@
-package fr.formation.models;
+package fr.formation.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="piece")
 public class Piece {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="PRO_ID")
+	private int id;
+	@Column(name="PRO_NOM", length = 50)
     private String name;
+	@ManyToMany
+	@Column (name="PRO_MAT")
     private int[][] matrix;
-    private int id;
+    
 
     public Piece(String name, int[][] matrix) {
         this.name = name;
