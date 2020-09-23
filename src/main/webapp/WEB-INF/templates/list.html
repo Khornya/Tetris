@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8"/>
-    <title>Liste des piÃ¨ces</title>
-    <base href="/eshop_web_war_exploded/"/>
+    <meta charset="ISO-8859-1"/>
+    <title>Liste des pièces</title>
+    <base href="/Tetris_war_exploded/"/>
 </head>
 <body>
-<h1>Liste des piÃ¨ces</h1>
-<a href="piece/add">Ajouter une piÃ¨ce</a>
+<h1>Liste des pièces</h1>
+<a href="piece/add">Ajouter une pièce</a>
 <ul th:each="piece : ${pieces} ">
     <li>
-        [[${ carte.nom }]]
+        [[${ piece.name }]]
         [ <a th:href="@{ piece/edit(id=${ piece.id }) }">Modifier</a> ]
         [ <a th:href="@{ piece/delete/{id}(id=${ piece.id }) }">Supprimer</a> ]
     </li>

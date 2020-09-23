@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Ajouter une piÃ¨ce</title>
+    <meta charset="ISO-8859-1"/>
+    <title>Ajouter une pièce</title>
+    <link rel="stylesheet" href="../assets/style/form.css">
 </head>
 <body>
-<h1 th:if="${ piece == null }"> Ajouter une piÃ¨ce </h1>
-<h1 th:if="${ piece != null }"> Modifier la piÃ¨ce </h1>
-<p>TEST</p>
+<h1 th:if="${ piece == null }"> Ajouter une pièce </h1>
+<h1 th:if="${ piece != null }"> Modifier la pièce </h1>
+
 <form method="POST">
     <div>
         <label>Nom</label>
-        <input type="text" name="nom" th:value="${piece?.name}" />
+        <input type="text" name="name" id="name" th:value="${piece?.name}" />
     </div>
     <div>
         <label>Taille de la grille</label>
@@ -25,9 +26,14 @@
         <label>Forme</label>
         <div id="grid"></div>
     </div>
+    <div style="display:none">
+        <label>Matrice</label>
+        <input name="matrix" id="matrix" type="hidden" />
+    </div>
     <div>
-        <input type="submit" value="Valider" />
+        <input id="submitButton" type="submit" value="Valider" />
     </div>
 </form>
+<script type="text/javascript" src="../assets/scripts/form.js"></script>
 </body>
 </html>
