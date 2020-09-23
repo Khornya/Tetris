@@ -41,6 +41,7 @@ public class WebConfig implements WebMvcConfigurer {
 	public ThymeleafViewResolver viewResolver(SpringTemplateEngine templateEngine) {
 		ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
 		viewResolver.setTemplateEngine(templateEngine);
+		viewResolver.setCache(false);
 		return viewResolver;
 	}
 
