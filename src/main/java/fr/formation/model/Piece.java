@@ -1,12 +1,6 @@
 package fr.formation.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name="piece")
@@ -17,10 +11,12 @@ public class Piece {
 	private int id;
 	@Column(name="PRO_NOM", length = 50)
     private String name;
-	@ManyToMany
+
 	@Column (name="PRO_MAT")
     private int[][] matrix;
-    
+
+    public Piece() {
+    }
 
     public Piece(String name, int[][] matrix) {
         this.name = name;

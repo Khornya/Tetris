@@ -2,7 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="ISO-8859-1"/>
-    <title>Ajouter une pièce</title>
+    <title th:if="${ piece == null }"> Ajouter une pièce </title>
+    <title th:if="${ piece != null }"> Modifier une pièce </title>
     <link rel="stylesheet" href="../assets/style/form.css">
 </head>
 <body>
@@ -12,11 +13,11 @@
 <form method="POST">
     <div>
         <label>Nom</label>
-        <input type="text" name="name" id="name" th:value="${piece?.name}" />
+        <input type="text" id="name" name="name" th:value="${piece?.name}" />
     </div>
     <div>
         <label>Taille de la grille</label>
-        <select name="size" id="size">
+        <select id="size">
             <option value="3">3x3</option>
             <option value="4">4x4</option>
             <option value="5">5x5</option>
@@ -28,12 +29,23 @@
     </div>
     <div style="display:none">
         <label>Matrice</label>
-        <input name="matrix" id="matrix" type="hidden" />
+        <input id="matrix" name="matrix" type="hidden" />
+    </div>
+    <div style="display:none">
+        <label>Matrice</label>
+        <input id="piece" name="piece" type="hidden" />
     </div>
     <div>
         <input id="submitButton" type="submit" value="Valider" />
     </div>
 </form>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+
+    let oldMatrix = /*[[${piece?.matrix}]]*/ [];
+
+    /*]]>*/
+</script>
 <script type="text/javascript" src="../assets/scripts/form.js"></script>
 </body>
 </html>

@@ -26,7 +26,7 @@ public class PieceController {
     }
 
     @PostMapping("/add")
-    public String add(Piece piece) {
+    public String add(@RequestBody Piece piece) {
         this.pieceService.add(piece);
 
         return "redirect:./list";
