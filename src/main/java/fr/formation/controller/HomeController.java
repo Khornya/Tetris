@@ -1,22 +1,32 @@
 package fr.formation.controller;
 
+import fr.formation.model.Piece;
+import fr.formation.service.PieceService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/home")
 public class HomeController {
+	@Autowired
+	private PieceService pieceService;
+
 	@GetMapping
-	public String Home(@RequestParam int id, Model model) {
-		//model.addAttribute("azz", id);
+	public String Home(Model model) {
 		return "home";		
 	}
+
 	@PostMapping
-	public String postHome() {
-		return "redirect:/home";
+	public String startGame(Model model) {
+		List<Piece> pieces = pieceService.findAll();
+		model.addAttribute("pieces", pieces);
+		if (pieces.isEmpty()) return "redirect:./form";
+		return "home";
 	}
 }
