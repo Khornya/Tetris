@@ -1,6 +1,5 @@
 .line {
     display: flex;
-    align-content: center;
 }
 
 .cell {
@@ -9,4 +8,8 @@
     border: 1px solid black;
     border-radius: 5px;
     margin: 1px;
+}
+
+#submitButton {
+    margin-top: 5px;
 }

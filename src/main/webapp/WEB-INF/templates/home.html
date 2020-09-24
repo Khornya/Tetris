@@ -19,18 +19,11 @@
           </h1>
           <div id="grid"></div>
           <div>
-            <button type="submit" class="btn btn-success">Commencer</button>
+            <button id="submitButton" type="submit" class="btn btn-success">Commencer</button>
           </div>
       </form>
+      <a href="../piece/list">Afficher la liste des pièces disponibles</a>
     </div>
-    <script th:inline="javascript">
-      /*<![CDATA[*/
-
-      let pieces = /*[[${pieces}]]*/ [];
-
-      /*]]>*/
-    </script>
-
     <script type="text/javascript" src="./assets/scripts/home.js"></script>
   </body>
 </html>

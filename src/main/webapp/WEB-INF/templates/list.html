@@ -5,21 +5,27 @@
     <title>Liste des pièces</title>
     <base href="/Tetris/"/>
     <link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-	crossorigin="anonymous">
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
 </head>
 <body>
-<h1>Liste des pièces</h1>
-<a href="home">Retrourner sur la page d'acceuil</a>
-<a href="piece/add">Ajouter une pièce</a>
-<ul th:each="piece : ${pieces} ">
-    <li>
-        [[${ piece.name }]]
-        [ <a th:href="@{ piece/edit(id=${ piece.id }) }">Modifier</a> ]
-        [ <a th:href="@{ piece/delete/{id}(id=${ piece.id }) }">Supprimer</a> ]
-    </li>
-    </th:each>
-</ul>
+<div class="container">
+    <h1>Liste des pièces</h1>
+    <p>
+        <a href="home">Retourner sur la page d'accueil</a>
+    </p>
+    <p>
+        <a href="piece/add">Ajouter une pièce</a>
+    </p>
+    <ul th:each="piece : ${pieces} ">
+        <li>
+            [[${ piece.name }]]
+            [ <a th:href="@{ piece/edit(id=${ piece.id }) }">Modifier</a> ]
+            [ <a th:href="@{ piece/delete/{id}(id=${ piece.id }) }">Supprimer</a> ]
+        </li>
+        </th:each>
+    </ul>
+</div>
 </body>
 </html>

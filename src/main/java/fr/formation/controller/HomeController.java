@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
@@ -23,10 +24,8 @@ public class HomeController {
 	}
 
 	@PostMapping
-	public String startGame(Model model) {
-		List<Piece> pieces = pieceService.findAll();
-		model.addAttribute("pieces", pieces);
-		if (pieces.isEmpty()) return "redirect:./piece/add";
-		return "home";
+	@ResponseBody
+	public List<Piece> startGame(Model model) {
+		return pieceService.findAll();
 	}
 }

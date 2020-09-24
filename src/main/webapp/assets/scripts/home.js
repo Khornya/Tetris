@@ -1,7 +1,9 @@
 (() => {
     const COLORS = ['blue','yellow','pink', 'green'];
     const ROWS = 10;
-    const COLS = 20;
+    const COLS = 15;
+
+    let pieces;
 
     let gridCells = [];
     let currentPiece = {
@@ -43,12 +45,33 @@
 
     createGrid(ROWS,COLS);
 
-    setInterval(() => {
-        putCurrentPieceOnGrid('black');
-        currentPiece.matrix = selectRandomPieceMatrix(pieces);
-        currentPiece.color = COLORS[Math.floor(Math.random() * COLORS.length)];
-        currentPiece.xposition = Math.floor((ROWS - currentPiece.matrix.length) / 2);
-        currentPiece.yposition = 0;
-        putCurrentPieceOnGrid(currentPiece.color);
-    }, 1000)
+    let submitButton = document.getElementById("submitButton");
+    submitButton.addEventListener("click", (e) => {
+        e.preventDefault();
+        let httpRequest = new XMLHttpRequest();
+        httpRequest.onreadystatechange = function() {
+            if (httpRequest.readyState === XMLHttpRequest.DONE) {
+                if (httpRequest.status === 200) {
+                    pieces = JSON.parse(httpRequest.response);
+                    if (pieces.length !== 0) {
+                        setInterval(() => {
+                            putCurrentPieceOnGrid('black');
+                            currentPiece.matrix = selectRandomPieceMatrix(pieces);
+                            currentPiece.color = COLORS[Math.floor(Math.random() * COLORS.length)];
+                            currentPiece.xposition = Math.floor((ROWS - currentPiece.matrix.length) / 2);
+                            currentPiece.yposition = 0;
+                            putCurrentPieceOnGrid(currentPiece.color);
+                        }, 1000)
+                    } else {
+                        window.location.href = "./piece/list";
+                    }
+
+                } else {
+                    console.log('Il y a eu un problème avec la requête.');
+                }
+            }
+        };
+        httpRequest.open('POST', '#', true);
+        httpRequest.send();
+    });
 })();
