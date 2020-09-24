@@ -1,44 +1,56 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="ISO-8859-1"/>
-    <title th:if="${ piece == null }"> Ajouter une pièce </title>
-    <title th:if="${ piece != null }"> Modifier une pièce </title>
-    <link rel="stylesheet" href="../assets/style/form.css">
+<meta charset="ISO-8859-1" />
+
+<title th:if="${ piece == null }">Ajouter une pièce</title>
+<br />
+<title th:if="${ piece != null }">Modifier une pièce</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+<link rel="stylesheet" href="../assets/style/form.css">
 </head>
+
 <body>
-<h1 th:if="${ piece == null }"> Ajouter une pièce </h1>
-<h1 th:if="${ piece != null }"> Modifier la pièce </h1>
+	<div class="container">
+		<h1 th:if="${ piece == null }">Ajouter une pièce</h1>
+		<h1 th:if="${ piece != null }">Modifier la pièce</h1>
 
-<form method="POST">
-    <div>
-        <label>Nom</label>
-        <input type="text" id="name" name="name" th:value="${piece?.name}" />
-    </div>
-    <div>
-        <label>Taille de la grille</label>
-        <select id="size">
-            <option value="3">3x3</option>
-            <option value="4">4x4</option>
-            <option value="5">5x5</option>
-        </select>
-    </div>
-    <div>
-        <label>Forme</label>
-        <div id="grid"></div>
-    </div>
-    <div id="matrix"></div>
-    <div>
-        <input id="submitButton" type="submit" value="Valider" />
-    </div>
-</form>
-<script th:inline="javascript">
-    /*<![CDATA[*/
+		<form method="POST">
+			<div>
+				<label>Nom</label> <input type="text" id="name" name="name"
+					th:value="${piece?.name}" />
+			</div>
+			<div>
+				<label>Taille de la grille</label> <select id="size">
+					<option value="3">3x3</option>
+					<option value="4">4x4</option>
+					<option value="5">5x5</option>
+				</select>
+			</div>
+			<div>
+				<label>Forme</label>
+				<div id="grid"></div>
+			</div>
+			<div id="matrix"></div>
+			<div>
+				<input type="submit" value="Valider" /> <a href="list">Retour</a>
 
-    let oldMatrix = /*[[${piece?.matrix}]]*/ [];
 
-    /*]]>*/
-</script>
-<script type="text/javascript" src="../assets/scripts/form.js"></script>
+			</div>
+		</form>
+
+		<script th:inline="javascript">
+			/*<![CDATA[*/
+
+			let oldMatrix = /*[[${piece?.matrix}]]*/[];
+
+			/*]]>*/
+		</script>
+		<script type="text/javascript" src="../assets/scripts/form.js"></script>
+	</div>
 </body>
+
 </html>

@@ -26,7 +26,7 @@ public class HomeController {
 	public String startGame(Model model) {
 		List<Piece> pieces = pieceService.findAll();
 		model.addAttribute("pieces", pieces);
-		if (pieces.isEmpty()) return "redirect:./form";
+		if (pieces.isEmpty()) return "redirect:./piece/add";
 		return "home";
 	}
 }
