@@ -26,8 +26,8 @@ public class PieceController {
     }
 
     @PostMapping("/add")
-    public String add(@RequestBody Piece piece) {
-        this.pieceService.add(piece);
+    public String add(String name, int[] array) {
+        this.pieceService.add(new Piece(name, arrayToMatrix(array)));
 
         return "redirect:./list";
     }
@@ -40,8 +40,8 @@ public class PieceController {
     }
 
     @PostMapping("/edit")
-    public String edit(@RequestParam int id, Piece piece) {
-        this.pieceService.edit(id, piece);
+    public String edit(@RequestParam int id, String name, int[] array) {
+        this.pieceService.edit(id, new Piece(name, arrayToMatrix(array)));
 
         return "redirect:./list";
     }
@@ -51,5 +51,16 @@ public class PieceController {
         this.pieceService.deleteById(id);
 
         return "redirect:../list";
+    }
+
+    private int[][] arrayToMatrix(int[] array) {
+        int size = (int) Math.sqrt(array.length);
+        int[][] matrix = new int[size][size];
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                matrix[i][j] = array[size*i+j];
+            }
+        }
+        return matrix;
     }
 }

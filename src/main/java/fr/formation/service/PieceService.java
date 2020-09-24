@@ -26,12 +26,12 @@ public class PieceService {
     }
 
     public void edit(int id, Piece piece) {
+        piece.setId(id);
         this.daoPiece.save(piece);
     }
 
     public Piece findById(int id) {
-        return this.daoPiece.findById(id).orElseThrow(
-        		PieceNotFoundException::new);
+        return this.daoPiece.findById(id).orElseThrow(PieceNotFoundException::new);
                
     }
 

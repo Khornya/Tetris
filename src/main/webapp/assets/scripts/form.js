@@ -1,6 +1,4 @@
 (() => {
-    console.log(oldMatrix);
-    // oldMatrix = [[1,0,0],[1,0,0],[1,0,0]];
 
     let createGrid = (size) => {
         let grid = document.getElementById("grid");
@@ -35,7 +33,8 @@
 
     let dropdown = document.getElementById("size");
     dropdown.addEventListener("change", () => {
-        matrix = createGrid()
+        cells = [];
+        matrix = createGrid(dropdown.options[dropdown.selectedIndex].value)
     });
 
     let matrix;
@@ -59,11 +58,23 @@
     form.addEventListener("submit", (e) => {
         e.preventDefault();
         // document.getElementById("matrix").value = JSON.stringify(matrix);
-        let name = document.getElementById("name").value;
-        document.getElementById("piece").value = {
-            "name": name,
-            "matrix": matrix
-        };
+        // let name = document.getElementById("name").value;
+        // document.getElementById("piece").value = {
+        //     "name": name,
+        //     "matrix": matrix
+        // };
+        let size = matrix.length;
+        let div = document.getElementById("matrix");
+        for (let i = 0; i < size; i++) {
+            for (let j = 0; j < size; j++) {
+                let input = document.createElement('input');
+                input.type = "hidden";
+                input.value = matrix[i][j];
+                // input.name = "matrix[" + i + "][" + j + "]";
+                input.name= "array";
+                div.appendChild(input)
+            }
+        }
         form.submit();
     });
 })();
