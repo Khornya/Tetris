@@ -1,1 +1,27 @@
-Coucou ${ azz }
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1"/>
+    <title>Bienvenue sur Tetris</title>
+    <link rel="stylesheet" href="../assets/style/home.css">
+</head>
+<body>
+<form method="POST">    
+    <div>
+        <label>Grille du Tetris</label>
+        <div id="grid"></div>
+    </div>
+    <div style="display:none">
+        <label>Matrice</label>
+        <input name="matrix" id="matrix" type="hidden" />
+    </div>
+    <div>
+        <input id="submitButton" type="submit" value="Commencer" />
+    </div>
+</form>
+<script th:inline="javascript">
+	let Pieces = /*[[${pieces?.matrix}]]*/[];
+</script>
+<script type="text/javascript" src="../assets/scripts/home.js"></script>
+</body>
+</html>

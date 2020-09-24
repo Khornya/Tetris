@@ -1,5 +1,5 @@
 (() => {
-
+		
     let createGrid = (size) => {
         let grid = document.getElementById("grid");
         grid.innerHTML = "";
