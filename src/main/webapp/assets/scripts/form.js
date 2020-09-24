@@ -57,12 +57,6 @@
     let form = document.querySelector("form");
     form.addEventListener("submit", (e) => {
         e.preventDefault();
-        // document.getElementById("matrix").value = JSON.stringify(matrix);
-        // let name = document.getElementById("name").value;
-        // document.getElementById("piece").value = {
-        //     "name": name,
-        //     "matrix": matrix
-        // };
         let size = matrix.length;
         let div = document.getElementById("matrix");
         for (let i = 0; i < size; i++) {
@@ -70,7 +64,6 @@
                 let input = document.createElement('input');
                 input.type = "hidden";
                 input.value = matrix[i][j];
-                // input.name = "matrix[" + i + "][" + j + "]";
                 input.name= "array";
                 div.appendChild(input)
             }

@@ -29,7 +29,6 @@ public class PieceService {
 
     public Piece findById(int id) {
         return this.daoPiece.findById(id).orElseThrow(PieceNotFoundException::new);
-               
     }
 
     public void deleteById(int id) {

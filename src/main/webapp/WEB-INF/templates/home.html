@@ -1,42 +1,36 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="ISO-8859-1" />
-<title>Bienvenue sur Tetris</title>
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-	crossorigin="anonymous">
-<link rel="stylesheet" href="../assets/style/home.css">
-</head>
-<body>
+  <head>
+    <meta charset="ISO-8859-1" />
+    <title>Bienvenue sur Tetris</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./assets/style/home.css" />
+  </head>
+  <body>
+    <div class="container">
+      <form method="POST">
+          <h1>
+            <label>Grille du Tetris</label>
+          </h1>
+          <div id="grid"></div>
+          <div>
+            <button type="submit" class="btn btn-success">Commencer</button>
+          </div>
+      </form>
+    </div>
+    <script th:inline="javascript">
+      /*<![CDATA[*/
 
-	<form method="POST">
-		<div>
-			<div class="container">
-				<h1>
-					<label>Grille du Tetris</label>
-				</h1>
-			</div>
-			<div class="container">
-				<div class="row">
-					<div id="grid"></div>
-				</div>
-			</div>
-		</div>
-		<div style="display: none">
-			<label>Matrice</label> <input name="matrix" id="matrix" type="hidden" />
-		</div>
-		<div>
-			<button type="submit" class="btn btn-success">Commencer</button>
-		</div>
-	</form>
+      let pieces = /*[[${pieces}]]*/ [];
 
+      /*]]>*/
+    </script>
 
-	<script th:inline="javascript">
-		let Pieces = /*[[${pieces?.matrix}]]*/[];
-	</script>
-
-	<script type="text/javascript" src="../assets/scripts/home.js"></script>
-</body>
+    <script type="text/javascript" src="./assets/scripts/home.js"></script>
+  </body>
 </html>
