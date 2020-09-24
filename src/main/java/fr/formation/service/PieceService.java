@@ -1,6 +1,5 @@
 package fr.formation.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,9 +12,7 @@ import fr.formation.model.Piece;
 @Service
 public class PieceService {
 	@Autowired
-	private IPieceRepository daoPiece; 
-    //private static int id = 1; Géré un base de données -> auto increment
-    //private List<Piece> pieces; Géré dans la dao
+	private IPieceRepository daoPiece;
 
     public List<Piece> findAll() {
         return this.daoPiece.findAll();
